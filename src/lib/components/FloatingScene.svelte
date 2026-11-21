@@ -93,7 +93,7 @@
   >
     <div>
       {#if settings.showCounter}
-        <ArrivalCounter sceneId={app.scene.id} count={app.session.arrived} />
+        <ArrivalCounter sceneId={app.scene.id} session={app.session} />
       {/if}
     </div>
     <button

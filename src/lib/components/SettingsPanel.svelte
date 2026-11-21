@@ -17,6 +17,7 @@
     VOLUME_GOAL_PRESETS,
     settings,
     type ArrivalRatePreset,
+    type CounterMode,
     type LoudResponse,
     type VolumeGoalPreset,
   } from "$lib/settings/settings.svelte";
@@ -37,6 +38,7 @@
 
   /** Run away first: it is the default. */
   const LOUD_RESPONSES: LoudResponse[] = ["flee", "pause"];
+  const COUNTER_MODES: CounterMode[] = ["arrived", "present"];
 
   let previewOpen = $state(false);
 </script>
@@ -237,6 +239,27 @@
         />
         {tIn(app.scene.id, "settings.showCounter")}
       </label>
+      {#if settings.showCounter}
+        <div class="grid grid-cols-2 gap-2">
+          {#each COUNTER_MODES as key (key)}
+            <button
+              class="rounded-md border px-2 py-2 text-left text-sm {settings.counterMode ===
+              key
+                ? 'border-slate-900 bg-slate-900 text-white'
+                : 'border-slate-300 hover:bg-slate-50'}"
+              aria-pressed={settings.counterMode === key}
+              onclick={() => (settings.counterMode = key)}
+            >
+              <span class="block font-semibold"
+                >{tIn(app.scene.id, `counter.${key}.label`)}</span
+              >
+              <span class="block text-xs opacity-80"
+                >{tIn(app.scene.id, `counter.${key}.hint`)}</span
+              >
+            </button>
+          {/each}
+        </div>
+      {/if}
     </section>
 
     <section class="mt-6 space-y-3">

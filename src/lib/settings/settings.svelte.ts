@@ -18,6 +18,11 @@ export type ArrivalRatePreset = "relaxed" | "normal" | "lively" | "custom";
  * settles, or start running away. See docs/adr/0003-animals-can-run-away.md.
  */
 export type LoudResponse = "flee" | "pause";
+/**
+ * What the counter counts: every Creature that has arrived this Session, or
+ * only the ones on screen right now (so it drops when one Runs Away).
+ */
+export type CounterMode = "arrived" | "present";
 
 export const VOLUME_GOAL_PRESETS: Record<
   Exclude<VolumeGoalPreset, "custom">,
@@ -56,6 +61,7 @@ interface StoredSettings {
   showMeter: boolean;
   /** Keep a count of the Creatures that have arrived up over the Scene. */
   showCounter: boolean;
+  counterMode: CounterMode;
 }
 
 const DEFAULTS: StoredSettings = {
@@ -69,6 +75,7 @@ const DEFAULTS: StoredSettings = {
   loudResponse: "flee",
   showMeter: false,
   showCounter: false,
+  counterMode: "arrived",
 };
 
 function read(): StoredSettings {
@@ -227,6 +234,15 @@ class Settings {
 
   set showCounter(value: boolean) {
     this.#stored = { ...this.#stored, showCounter: value };
+    this.#save();
+  }
+
+  get counterMode() {
+    return this.#stored.counterMode;
+  }
+
+  set counterMode(value: CounterMode) {
+    this.#stored = { ...this.#stored, counterMode: value };
     this.#save();
   }
 

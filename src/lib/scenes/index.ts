@@ -36,6 +36,11 @@ import jungleIcon from "./jungle/icon.svg";
 import { JUNGLE_NOTE } from "./jungle/note";
 import { JUNGLE_ROSTER } from "./jungle/roster";
 import type { DepartureStyle } from "./motion";
+import MythicalAmbient from "./mythical/AmbientLife.svelte";
+import * as mythicalArt from "./mythical/artwork";
+import mythicalIcon from "./mythical/icon.svg";
+import { MYTHICAL_NOTE } from "./mythical/note";
+import { MYTHICAL_ROSTER } from "./mythical/roster";
 import PrehistoricAmbient from "./prehistoric/AmbientLife.svelte";
 import * as prehistoricArt from "./prehistoric/artwork";
 import prehistoricIcon from "./prehistoric/icon.svg";
@@ -240,6 +245,21 @@ export const SCENES: Record<SceneId, SceneDef> = {
     departure: "run",
     whilePaused: "listen",
     note: ARCTIC_NOTE,
+  },
+  mythical: {
+    id: "mythical",
+    icon: mythicalIcon,
+    roster: MYTHICAL_ROSTER,
+    creatureArt: mythicalArt.CREATURE_ART,
+    listeningArt: mythicalArt.LISTENING_ART,
+    ambientArt: mythicalArt.AMBIENT_ART,
+    Ambient: MythicalAmbient,
+    // Open air over the meadow, as on the savanna.
+    depthFade: false,
+    departure: "run",
+    whilePaused: "listen",
+    note: MYTHICAL_NOTE,
+    isNew: true,
   },
   halloween: {
     id: "halloween",

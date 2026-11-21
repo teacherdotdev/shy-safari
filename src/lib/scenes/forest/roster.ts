@@ -49,6 +49,8 @@ export const FOREST_ROSTER: CreatureDef[] = [
     tier: "common",
     width: 42,
     motion: "scuttle",
+    // Drawn side on, so it turns to face the way it scuttles.
+    flips: true,
     parts: [],
   },
   {

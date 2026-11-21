@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+  <!-- The two trees framing the valley, drawn over the Creatures so anything
+       that wanders to the edge goes behind them. Same frame as the backdrop. -->
+  <defs>
+    <clipPath id="mythical-trees-birch">
+      <path d="M1846,1080 C1852,960 1858,760 1854,560 C1850,400 1846,260 1840,140 L1890,140 C1890,260 1888,400 1892,560 C1896,760 1904,960 1920,1080 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- The silver birch framing the right, pale bark with dark marks. -->
+  <path d="M1846,1080 C1852,960 1858,760 1854,560 C1850,400 1846,260 1840,140 L1890,140 C1890,260 1888,400 1892,560 C1896,760 1904,960 1920,1080 Z" fill="#eeeaf0"/>
+  <path d="M1868,140 L1890,140 C1890,260 1888,400 1892,560 C1896,760 1904,960 1920,1080 L1886,1080 C1878,960 1874,760 1872,560 C1868,400 1868,260 1868,140 Z" fill="#2b2b3a" opacity="0.1"/>
+  <g fill="#5a5466" clip-path="url(#mythical-trees-birch)">
+    <path d="M1836,327 C1850,326 1866,327 1873,330 C1866,332 1850,333 1836,333 Z"/>
+    <path d="M1904,514 C1888,514 1874,515 1867,518 C1874,520 1888,521 1904,521 Z"/>
+    <path d="M1840,696 C1856,695 1870,696 1877,699 C1870,701 1856,702 1840,702 Z"/>
+    <path d="M1914,874 C1894,874 1879,875 1871,878 C1879,880 1894,881 1914,881 Z"/>
+    <path d="M1836,437 C1850,436 1862,437 1867,439 C1862,441 1850,442 1836,442 Z"/>
+    <path d="M1840,982 C1858,981 1874,982 1881,985 C1874,987 1858,988 1840,988 Z"/>
+  </g>
+  <g fill="#86c7a1">
+    <circle cx="1700" cy="176" r="44"/><circle cx="1800" cy="206" r="56"/><circle cx="1900" cy="196" r="56"/>
+  </g>
+  <g fill="#9fd6b4">
+    <circle cx="1740" cy="70" r="80"/><circle cx="1850" cy="40" r="90"/><circle cx="1680" cy="150" r="56"/>
+    <circle cx="1790" cy="170" r="72"/><circle cx="1900" cy="160" r="70"/>
+  </g>
+  <g fill="#ffffff" opacity="0.18">
+    <circle cx="1720" cy="44" r="30"/><circle cx="1830" cy="12" r="34"/><circle cx="1666" cy="134" r="20"/>
+  </g>
+
+  <!-- The blossom tree framing the left: a warm trunk and a pink-and-lilac
+       canopy over the top-left corner. -->
+  <path d="M30,340 C110,300 170,250 230,200 L250,216 C190,270 130,322 40,400 Z" fill="#8a6a5c"/>
+  <path d="M150,276 C190,262 236,244 290,230 L294,248 C244,262 196,278 156,292 Z" fill="#8a6a5c"/>
+  <path d="M0,1080 L0,200 L70,200 C84,300 100,420 104,560 C108,700 112,860 130,960 C142,1020 170,1060 214,1080 Z" fill="#8a6a5c"/>
+  <path d="M70,200 C84,300 100,420 104,560 C108,700 112,860 130,960 C142,1020 170,1060 214,1080 L150,1080 C110,1050 92,990 84,920 C74,820 72,660 66,520 C62,400 56,300 46,200 Z" fill="#2b2b3a" opacity="0.14"/>
+  <g fill="#e3a3c4">
+    <circle cx="90" cy="256" r="48"/><circle cx="200" cy="222" r="46"/><circle cx="306" cy="214" r="40"/>
+    <circle cx="380" cy="126" r="46"/><circle cx="380" cy="200" r="36"/>
+  </g>
+  <g fill="#f3b6cc">
+    <circle cx="40" cy="60" r="110"/><circle cx="190" cy="40" r="96"/><circle cx="320" cy="70" r="78"/>
+    <circle cx="110" cy="190" r="90"/><circle cx="250" cy="170" r="76"/><circle cx="360" cy="180" r="50"/>
+    <circle cx="20" cy="260" r="64"/><circle cx="6" cy="172" r="58"/>
+  </g>
+  <g fill="#ffffff" opacity="0.22">
+    <circle cx="160" cy="26" r="40"/><circle cx="300" cy="46" r="30"/><circle cx="80" cy="150" r="34"/><circle cx="230" cy="140" r="28"/>
+  </g>
+</svg>

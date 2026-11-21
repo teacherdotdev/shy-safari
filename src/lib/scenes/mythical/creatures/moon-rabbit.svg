@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.5 1.7 93.7 66.9">
+  <g transform="rotate(-22.0 50 42)">
+  <path d="M2 18 C 1 48, 22 66, 50 66 C 78 66, 99 48, 98 18 C 93 42, 74 55, 50 55 C 26 55, 7 42, 2 18 Z" fill="#ffd166"/>
+  <path d="M2 18 C 1 48, 22 66, 50 66 C 78 66, 99 48, 98 18 C 97.5 44, 77 62.5, 50 62.5 C 23 62.5, 2.5 44, 2 18 Z" fill="#2b2b3a" opacity="0.13"/>
+  <ellipse cx="11" cy="42.5" rx="2.6" ry="1.8" transform="rotate(50 11 42.5)" fill="#2b2b3a" opacity="0.1"/>
+  <ellipse cx="88.5" cy="45" rx="2" ry="1.4" transform="rotate(-50 88.5 45)" fill="#2b2b3a" opacity="0.1"/>
+  <path d="M33 52.6 L34 52.9 L36 53.4 L38 53.8 L40 54.2 L42 54.5 L44 54.7 L46 54.9 L48 55 L50 55 L52 55 L54 54.9 L56 54.7 L58 54.5 L60 54.2 L62 53.8 L64 53.4 L66 52.9 L68 52.3 L70 51.5 L72 50.7 L74 49.8 L76 48.7 L78 47.6 L78 47.6 L76 49.9 L74 51.5 L72 53 L70 54.2 L68 55.3 L66 56.2 L64 56.9 L62 57.6 L60 58.1 L58 58.5 L56 58.8 L54 59.1 L52 59.2 L50 59.2 L48 59.1 L46 58.9 L44 58.6 L42 58.2 L40 57.7 L38 57.1 L36 56.4 L34 54 L33 52.6 Z" fill="#2b2b3a" opacity="0.28"/>
+  <g class="part-ears" style="transform-box: fill-box; transform-origin: 95% 50%">
+    <ellipse cx="51" cy="30.8" rx="13.5" ry="3.6" transform="rotate(4 51 30.8)" fill="#f3f1f8"/>
+    <ellipse cx="51" cy="30.8" rx="13.5" ry="3.6" transform="rotate(4 51 30.8)" fill="#a993d6" opacity="0.55"/>
+  </g>
+  <path d="M31.6 49.9 C 29 41, 37 33, 47 32.6 C 55 32.3, 62 34.5, 67 40 C 70 44, 74 47.4, 78.6 48.3 C 76 50.5, 73 51.8, 70 52.3 C 64 55.6, 56 56, 50 55.8 C 45 55.8, 40 53.5, 31.6 49.9 Z" fill="#f3f1f8"/>
+  <path d="M31.6 49.9 C 40 53.5, 45 55.8, 50 55.8 C 56 56, 64 55.6, 70 52.3 C 73 51.8, 76 50.5, 78.6 48.3 L 77.2 49.2 C 72 51.2, 65.5 51.2, 62.4 47.3 C 58 51, 54 52.6, 49 52.4 C 42 52.2, 36 50.8, 31 48 Z" fill="#a993d6" opacity="0.45"/>
+  <ellipse cx="40" cy="46.3" rx="10" ry="8.3" fill="#f3f1f8"/>
+  <path d="M30.4 48.6 A 10 8.3 0 0 0 49.8 47.95 C 46.5 50.9, 43 51.7, 39.5 51.5 C 36 51.3, 32.8 50.3, 30.4 48.6 Z" fill="#a993d6" opacity="0.4"/>
+  <circle cx="28.8" cy="41.5" r="4.6" fill="#f3f1f8"/>
+  <path d="M24.5 43.1 C 25.7 46.3, 29.9 47.3, 32.7 45.1 C 29.9 45.8, 26.9 45.1, 24.5 43.1 Z" fill="#a993d6" opacity="0.4"/>
+  <ellipse cx="47" cy="54.6" rx="6" ry="2.3" transform="rotate(5 47 54.6)" fill="#f3f1f8"/>
+  <ellipse cx="47" cy="54.6" rx="6" ry="2.3" transform="rotate(5 47 54.6)" fill="#a993d6" opacity="0.3"/>
+  <ellipse cx="77.6" cy="48.2" rx="2.6" ry="1.5" transform="rotate(-28 77.6 48.2)" fill="#f3f1f8"/>
+  <ellipse cx="77.6" cy="48.2" rx="2.6" ry="1.5" transform="rotate(-28 77.6 48.2)" fill="#a993d6" opacity="0.3"/>
+  <circle cx="70" cy="40.5" r="9.5" fill="#f3f1f8"/>
+  <ellipse cx="76.5" cy="44.3" rx="5.8" ry="4.4" fill="#f3f1f8"/>
+  <path d="M62.4 47.4 C 65.5 51.3, 72 51.3, 77.2 49.3 C 79.8 48.2, 81.6 46.4, 82.2 45 C 78 47.5, 69 49, 62.4 47.4 Z" fill="#a993d6" opacity="0.35"/>
+  <g class="part-ears" style="transform-box: fill-box; transform-origin: 95% 50%">
+    <ellipse cx="53" cy="33.5" rx="15" ry="4.6" transform="rotate(7 53 33.5)" fill="#f3f1f8"/>
+    <ellipse cx="51.5" cy="33.3" rx="10.5" ry="2.2" transform="rotate(7 51.5 33.3)" fill="#f7a8c4"/>
+  </g>
+  <path d="M69.5 38.2 C 71 40.8, 74.6 40.8, 76.2 38.2 C 74.5 39.4, 71.2 39.4, 69.5 38.2 Z" fill="#2b2b3a"/>
+  <ellipse cx="71.5" cy="44" rx="3" ry="1.9" fill="#ff7a8a" opacity="0.55"/>
+  <circle cx="81.4" cy="42.6" r="1.4" fill="#ff7a8a"/>
+  <path d="M78.4 46 C 79.5 47.1, 81 47.1, 81.8 46 C 80.9 46.6, 79.4 46.6, 78.4 46 Z" fill="#2b2b3a" opacity="0.5"/>
+  </g>
+</svg>

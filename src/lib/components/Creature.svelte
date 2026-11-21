@@ -340,6 +340,7 @@
             class:arriving={isNewest}
             class:settled={!glistening}
             data-tier={creature.def.tier}
+            data-motion={creature.def.motion}
           >
             {#if isNewest}
               <!-- The payoff moment has to carry across a classroom. -->

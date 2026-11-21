@@ -60,6 +60,11 @@ export class Session {
    * arrival counter. Only Reset lowers it: one that Runs Away still came.
    */
   arrived = $state(0);
+  /**
+   * How many Creatures are on screen right now. One running for the edge
+   * already counts as gone, the same as it does for a refresh.
+   */
+  present = $derived(this.creatures.length - this.fleeing.length);
 
   #clock: ArrivalClock;
   #scare: ScareClock = createScareClock();

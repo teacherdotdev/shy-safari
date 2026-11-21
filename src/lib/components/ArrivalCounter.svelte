@@ -2,18 +2,27 @@
   /**
    * How many Creatures have arrived this Session, in any Scene, kept up in
    * the corner for a teacher who turns it on in Settings. Only Reset sets it
-   * back to 0: a Creature that Runs Away still arrived. Like the on-screen
+   * back to 0: a Creature that Runs Away still arrived. Or, if the teacher
+   * picks it in Settings, how many are on screen right now. Like the on-screen
    * Noise Meter, it stays up when the controls fade, since watching it is
    * the point.
    */
 
   import { tIn } from "$lib/i18n/index.svelte";
   import type { SceneId } from "$lib/scenes/types";
+  import type { Session } from "$lib/session/session.svelte";
+  import { settings } from "$lib/settings/settings.svelte";
   import { scale } from "svelte/transition";
 
-  let { sceneId, count }: { sceneId: SceneId; count: number } = $props();
+  let { sceneId, session }: { sceneId: SceneId; session: Session } = $props();
 
-  const label = $derived(tIn(sceneId, "counter.label", { count }));
+  const present = $derived(settings.counterMode === "present");
+  const count = $derived(present ? session.present : session.arrived);
+  const label = $derived(
+    tIn(sceneId, present ? "counter.presentLabel" : "counter.label", {
+      count,
+    }),
+  );
 </script>
 
 <div

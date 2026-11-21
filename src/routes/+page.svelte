@@ -507,7 +507,7 @@
         : ''}"
     >
       {#if app.listening && settings.showCounter}
-        <ArrivalCounter sceneId={app.scene.id} count={app.session.arrived} />
+        <ArrivalCounter sceneId={app.scene.id} session={app.session} />
       {/if}
       <div
         class="pointer-events-auto flex gap-2 transition-opacity duration-300"

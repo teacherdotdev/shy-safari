@@ -58,6 +58,20 @@ export type MotionStyle =
    */
   | "paddle"
   /**
+   * Mythical: swims along the lake below the castle, surfacing as it goes,
+   * with long rests. Drawn from the waterline up, like `paddle`.
+   */
+  | "swim"
+  /**
+   * Mythical: dozes high up in the sky, like a moon, drifting very slowly
+   * with long rests.
+   */
+  | "doze"
+  /** Mythical: `hover`, kept to the clearing between the framing trees. */
+  | "flutter"
+  /** Mythical: `soar`, kept to the open sky between the framing trees. */
+  | "wheel"
+  /**
    * Pumpkin Hollow: a giant's slow walk along the back of the patch, with
    * long stops to look about, so it towers over the pumpkins in front.
    */
@@ -76,6 +90,11 @@ export interface MotionProfile {
    * sit on the sand instead.
    */
   region: Region;
+  /**
+   * The region holds the whole Creature, not just its centre, so no part of
+   * it strays outside: for keeping fliers out from behind scenery.
+   */
+  whole?: boolean;
   /** Cruising speed in Scene widths per second. */
   speed: number;
   /** How quickly velocity turns towards the target, per second. */
@@ -147,10 +166,26 @@ const BOUGH_UNDERSIDE = { top: 0.546, bottom: 0.556 };
 const OPEN_WATER = { top: 0.54, bottom: 0.598 };
 
 /**
+ * The lake in the mythical backdrop, between the far shore and the meadow's
+ * sandy lip, as fractions of Scene height: where a swimmer's waterline runs.
+ */
+const LAKE = { top: 0.565, bottom: 0.612 };
+
+/**
  * The back of the pumpkin patch in the Pumpkin Hollow backdrop, as fractions
  * of Scene height: where a giant walks, behind everything nearer.
  */
 const PATCH_BACK = { top: 0.6, bottom: 0.64 };
+
+/**
+ * The mythical valley's sky between the canopies of its two framing trees
+ * (`mythical/ambient/trees.svg`), which are drawn over every Creature. A
+ * flier is kept wholly inside, bar a brush with the outermost blossom.
+ */
+const CLEAR_SKY = { xMin: 0.21, xMax: 0.855 };
+
+/** Below those canopies, the clearing between the two trunks. */
+const CLEARING = { xMin: 0.1, xMax: 0.955 };
 
 /** Open sky, all the way down to the planet's limb at the bottom. */
 const SKY: Region = { xMin: 0.05, xMax: 0.95, yMin: 0.06, yMax: 0.86 };
@@ -440,6 +475,64 @@ export const MOTION_PROFILES: Record<MotionStyle, MotionProfile> = {
     ground: true,
     band: OPEN_WATER,
   },
+  swim: {
+    region: { xMin: 0.04, xMax: 0.96, yMin: 0, yMax: 1 },
+    speed: 0.016,
+    agility: 1.2,
+    reachX: 0.5,
+    reachY: 0,
+    restChance: 0.5,
+    rest: [3, 8],
+    pulse: 0,
+    flips: true,
+    tilts: false,
+    // On the lake rather than under it, keeping to its waterline.
+    ground: true,
+    band: LAKE,
+  },
+  doze: {
+    region: { ...CLEAR_SKY, yMin: 0.02, yMax: 0.34 },
+    whole: true,
+    speed: 0.006,
+    agility: 0.5,
+    reachX: 0.2,
+    reachY: 0.1,
+    restChance: 0.75,
+    rest: [5, 12],
+    pulse: 0,
+    flips: true,
+    tilts: false,
+    ground: false,
+  },
+  flutter: {
+    region: { ...CLEARING, yMin: 0.25, yMax: 0.82 },
+    whole: true,
+    speed: 0.01,
+    agility: 0.8,
+    reachX: 0.15,
+    reachY: 0.15,
+    restChance: 0.6,
+    rest: [2, 6],
+    pulse: 0,
+    flips: true,
+    tilts: false,
+    ground: false,
+  },
+  wheel: {
+    region: { ...CLEAR_SKY, yMin: 0.03, yMax: 0.5 },
+    whole: true,
+    speed: 0.028,
+    agility: 0.5,
+    reachX: 1,
+    reachY: 0.5,
+    restChance: 0,
+    rest: [0, 0],
+    pulse: 0,
+    flips: true,
+    tilts: true,
+    ground: false,
+    band: PLAIN,
+  },
   stride: {
     region: { xMin: 0.04, xMax: 0.96, yMin: 0, yMax: 1 },
     speed: 0.007,
@@ -523,8 +616,12 @@ function bounds(
 ): Region {
   const halfW = footprint.width / 2;
   const halfH = footprint.height / 2;
-  const xMin = Math.max(profile.region.xMin, halfW);
-  const xMax = Math.min(profile.region.xMax, 1 - halfW);
+  // A region that holds the whole Creature is one its centre keeps half its
+  // size inside of.
+  const insetW = profile.whole ? halfW : 0;
+  const insetH = profile.whole ? halfH : 0;
+  const xMin = Math.max(profile.region.xMin + insetW, halfW);
+  const xMax = Math.min(profile.region.xMax - insetW, 1 - halfW);
   const x = xMin <= xMax ? { xMin, xMax } : { xMin: 0.5, xMax: 0.5 };
 
   if (profile.ground) {
@@ -532,8 +629,8 @@ function bounds(
     const y = profile.hangs ? line + halfH : line - halfH;
     return { ...x, yMin: y, yMax: y };
   }
-  const yMin = Math.max(profile.region.yMin, halfH);
-  const yMax = Math.min(profile.region.yMax, 1 - halfH);
+  const yMin = Math.max(profile.region.yMin + insetH, halfH);
+  const yMax = Math.min(profile.region.yMax - insetH, 1 - halfH);
   return {
     ...x,
     ...(yMin <= yMax ? { yMin, yMax } : { yMin: 0.5, yMax: 0.5 }),
